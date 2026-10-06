@@ -30,28 +30,28 @@
         <p style="color: red;">{{ result.error }}</p>
         {% else %}
         <div class="result-table">
-            <table class="{{ result.table }}">
+            <table class="result_table" border="1">
                 <thead>
-                    <th>{{ result.col0 }}</th>
-                    <th>{{ result.col1 }}</th>
-                    <th>{{ result.col2 }}</th>
-                    <th>{{ result.col3 }}</th>
+                    <th>Model</th>
+                    <th>ResNet50</th>
+                    <th>VGG16</th>
+                    <th>Xception</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ result.row1 }}</td>
+                        <td>Result</td>
                         <td>{{ result.resnet_predicted_class }}</td>
                         <td>{{ result.vgg_predicted_class }}</td>
                         <td>{{ result.xception_predicted_class }}</td>
                     </tr>
                     <tr>
-                        <td>{{ result.row2 }}</td>
+                        <td>Confidence Score</td>
                         <td>{{ result.resnet_confidence }}</td>
                         <td>{{ result.vgg_confidence }}</td>
                         <td>{{ result.xception_confidence }}</td>
                     </tr>
                     <tr>
-                        <td>{{ result.row3 }}</td>
+                        <td>Inference Time (s)</td>
                         <td>{{ result.resnet_inference_time }}</td>
                         <td>{{ result.vgg_inference_time }}</td>
                         <td>{{ result.xception_inference_time }}</td>

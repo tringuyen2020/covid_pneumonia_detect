@@ -10,9 +10,9 @@ from keras.applications.resnet50 import preprocess_input
 from keras.models import load_model
 
 # Load the model once when the server starts
-RESNET50_MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'covid_pneumonia_resnet50_model.keras')
-VGG16_MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'covid_pneumonia_vgg16_model.keras')
-XCEPTION_MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'covid_pneumonia_xception_model.keras')
+RESNET50_MODEL_PATH = os.path.join(os.path.dirname((__file__)), 'models', 'covid_pneumonia_resnet50_model.keras')
+VGG16_MODEL_PATH = os.path.join(os.path.dirname((__file__)), 'models', 'covid_pneumonia_vgg16_model.keras')
+XCEPTION_MODEL_PATH = os.path.join(os.path.dirname((__file__)), 'models', 'covid_pneumonia_xception_model.keras')
 resnet50_model = load_model(RESNET50_MODEL_PATH)
 vgg16_model = load_model(VGG16_MODEL_PATH)
 xception_model = load_model(XCEPTION_MODEL_PATH)
@@ -65,14 +65,6 @@ def index(request):
             xception_inference_time = xception_end - xception_start
 
             result = {
-                'table': "table",
-                'col0': "Model",
-                'col1': "ResNet50",
-                'col2': "VGG16",
-                'col3': "Xception",
-                'row1': "Result",
-                'row2': "Confidence Score",
-                'row3': "Inference Time (s)",
                 'resnet_predicted_class': CLASS_LABELS[resnet_predicted_idx],
                 'resnet_confidence': f"{resnet_confidence:.2f}%",
                 'resnet_inference_time': f"{resnet_inference_time:.4f} seconds",
